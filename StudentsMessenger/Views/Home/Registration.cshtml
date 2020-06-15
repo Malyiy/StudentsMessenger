@@ -1,0 +1,113 @@
+﻿@using StudentsMessenger.ViewsModels
+@model RegistrationView
+@{
+    ViewData["Title"] = "Registration";
+}
+@{
+    List<SelectListItem> courses = new List<SelectListItem>();
+    courses.Add(new SelectListItem
+    {
+        Text = "1",
+        Value = "1",
+        Selected = true
+    });
+    courses.Add(new SelectListItem
+    {
+        Text = "2",
+        Value = "2"
+    });
+    courses.Add(new SelectListItem
+    {
+        Text = "3",
+        Value = "3"
+    });
+    courses.Add(new SelectListItem
+    {
+        Text = "4",
+        Value = "4"
+    });
+    List<SelectListItem> formEdus = new List<SelectListItem>();
+    formEdus.Add(new SelectListItem
+    {
+        Text = "Дневна",
+        Value = "full-time",
+        Selected = true
+    });
+    formEdus.Add(new SelectListItem
+    {
+        Text = "Задочна",
+        Value = "part-time"
+    });
+}
+
+<h2>Register</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserName"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FName"></label>
+                <input asp-for="FName" class="form-control" />
+                <span asp-validation-for="FName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MName"></label>
+                <input asp-for="MName" class="form-control" />
+                <span asp-validation-for="MName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LName"></label>
+                <input asp-for="LName" class="form-control" />
+                <span asp-validation-for="LName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FNum"></label>
+                <input asp-for="FNum" class="form-control" />
+                <span asp-validation-for="FNum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Specialty"></label>
+                <input asp-for="Specialty" class="form-control" />
+                <span asp-validation-for="Specialty" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cours"></label>
+                <select asp-for="Cours" asp-items="courses" class="form-control"></select>
+                <span asp-validation-for="Cours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FormOfTraning"></label>
+                <select asp-for="FormOfTraning" asp-items="formEdus" class="form-control"></select>
+                <span asp-validation-for="FormOfTraning" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmPassword"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Registration</button>
+            
+            <a class="btn btn-primary btn-block" onclick="history.go(-1); return false;" href="#">Back</a>
+            
+
+
+
+        </form>
+</div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

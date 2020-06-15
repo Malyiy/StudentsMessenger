@@ -1,0 +1,44 @@
+﻿@model IEnumerable<StudentsMessenger.Models.Work>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <h3>Предадени курсови работи</h3>
+
+<p>
+    <a class="btn btn-primary " asp-action="Create">Добави работа</a>
+    
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titlework)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>Линк</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Titlework)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    <a href="/Works/FileDownload/@item.Id/" download>Свали</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
